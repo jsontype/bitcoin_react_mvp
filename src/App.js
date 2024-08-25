@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-// CryptoItem 컴포넌트 정의
+// CryptoItemコンポーネント
 function CryptoItem({ id, name, price, onClick }) {
   return (
     <div onClick={() => onClick(id)} style={{ cursor: 'pointer', margin: '20px 0' }}>
@@ -10,7 +10,7 @@ function CryptoItem({ id, name, price, onClick }) {
   );
 }
 
-// HistoryButtons 컴포넌트 정의
+// HistoryButtonsコンポーネント
 function HistoryButtons({ onFetchHistory }) {
   const periods = [
     { label: '1 Day', value: '1d' },
@@ -57,7 +57,11 @@ function App() {
     };
   
     fetchPrices();
-    const interval = setInterval(fetchPrices, 300000); // 5분 간격으로 호출
+
+    // ***!
+    console.log('prices: ', prices)
+
+    const interval = setInterval(fetchPrices, 300000); // 5分毎にアップデート
     return () => clearInterval(interval);
   }, []);  
 
@@ -84,7 +88,7 @@ function App() {
 
   const handleCryptoClick = (cryptoId) => {
     setSelectedCrypto(cryptoId);
-    setHistory(null); // 클릭 시 이전 이력 초기화
+    setHistory(null); // 以前の履歴をクリア
   };
 
   const handleFetchHistory = (period) => {
