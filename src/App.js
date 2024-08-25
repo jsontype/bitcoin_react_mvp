@@ -58,12 +58,13 @@ function App() {
   
     fetchPrices();
 
-    // ***!
-    console.log('prices: ', prices)
-
     const interval = setInterval(fetchPrices, 300000); // 5分毎にアップデート
     return () => clearInterval(interval);
   }, []);  
+
+  // ***!
+  console.log('prices: ', prices)
+  console.log('history: ', history)
 
   const fetchHistory = async (cryptoId, days) => {
     const apiUrl = `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=${days}`;
