@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import FearIndex from './FearIndex';
+import BitcoinPriceIndex from './BitcoinPriceIndex';
 
 // CryptoItemコンポーネント
 function CryptoItem({ id, name, price, onClick }) {
@@ -112,6 +114,9 @@ function App() {
 
   return (
     <div className="App">
+      <FearIndex />
+      <BitcoinPriceIndex />
+
       <header className="App-header">
         <h1>Cryptocurrency Prices</h1>
         <CryptoItem
